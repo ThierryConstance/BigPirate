@@ -1,10 +1,6 @@
-import java.awt.Image;
-import java.io.File;
-import java.io.IOException;
 import java.util.AbstractCollection;
 import java.util.HashSet;
 
-import javax.imageio.ImageIO;
 
 
 public abstract class Case {
@@ -64,16 +60,7 @@ public abstract class Case {
 	}
 	
 	/*public static void main(String[] args) {
-		try {
-			Image img=ImageIO.read(new File ("src/fond.jpg"));
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-			System.out.println("houhou");
-		}
 
-		
-		
 	}*/
 	
 }

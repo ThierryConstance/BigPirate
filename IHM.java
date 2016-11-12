@@ -29,8 +29,7 @@ public class IHM extends JFrame{
 	
 	
 	public static void main(String[] args){
-		Systeme syst=new Systeme();
-		JFrame fenetre = new IHM(syst);
+
 	}
 	
 }

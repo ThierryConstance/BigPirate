@@ -5,6 +5,7 @@ public class Systeme
 	private Personnage[] collection_personnage;
 	private int nb_moussaillon = 3;
 	private int nb_perso = nb_moussaillon + 2;
+	private IHM ihm;
 	
 
 //coordoner de la map en bas a gauche case 0,0	
@@ -12,13 +13,28 @@ public class Systeme
 	public Systeme()
 	{
 		grille = new Case[12][12];
-		
 		for(int i=0;i<12;i++){
 			for(int j=0;j<12;j++){
 				grille[i][j]=new Chemin(i,j);
 			}
 		}
-		
+		for(int i=2;i<6;i++){
+			grille[2][i]= new Jungle(2,i);
+			grille[4][i]= new Jungle(4,i);
+			grille[5][i]= new Jungle(5,i);
+			grille[9][i]= new Jungle(9,i);
+		}
+		for(int i=0;i<3;i++){
+			grille[2][i+7]= new Jungle(2,i+7);
+			grille[7][i+2]= new Jungle(7,i+2);
+			grille[i+7][8]= new Jungle(i+7,8);
+			grille[i+7][9]= new Jungle(i+7,9);
+		}
+		grille[3][9]= new Jungle(3,9);
+		grille[4][7]= new Jungle(4,7);
+		grille[5][8]= new Jungle(5,8);
+		grille[7][6]= new Jungle(7,6);
+		grille[9][7]= new Jungle(9,7);
 
 		grille[4][8]=new Grotte(4,8);
 		
@@ -56,6 +72,7 @@ public class Systeme
 		
 		
 		collection_personnage = new Personnage[nb_perso];
+		ihm=new IHM(this);
 	}
 	
 	//----------------------------------------------------------------------------------------------------------------------------------------
