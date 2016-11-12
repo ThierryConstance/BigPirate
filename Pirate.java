@@ -1,6 +1,5 @@
-package Main;
 
 
-public class Pirate {
+public class Pirate extends Personnage {
 
 }
