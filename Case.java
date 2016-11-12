@@ -63,7 +63,7 @@ public abstract class Case {
 		}
 	}
 	
-	public static void main(String[] args) {
+	/*public static void main(String[] args) {
 		try {
 			Image img=ImageIO.read(new File ("src/fond.jpg"));
 		} catch (IOException e) {
@@ -74,6 +74,6 @@ public abstract class Case {
 
 		
 		
-	}
+	}*/
 	
 }
