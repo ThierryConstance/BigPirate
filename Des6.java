@@ -1,6 +1,8 @@
-package Main;
 
+public class Des6 extends Des {
 
-public class Des6 {
-
+	public Integer lancerDe(){
+		return alea.nextInt(6)+1;
+	}
+	
 }

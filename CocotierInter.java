@@ -1,6 +1,14 @@
-package Main;
 
+public class CocotierInter extends Case {
 
-public class CocotierInter {
-
+	CocotierInter(Integer _x, Integer _y) {
+		super(_x, _y);
+		path="src/cocotierinter.png";
+	}
+	public Boolean estValide(){
+		return true;
+	}
+	public Boolean cocotierInter(){
+		return true;
+	}
 }

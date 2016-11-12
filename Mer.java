@@ -1,6 +1,10 @@
-package Main;
 
+public class Mer extends Case{
 
-public class Mer {
+	Mer(Integer _x, Integer _y) {
+		super(_x, _y);
+		path="src/mer.png";
+	}
 
+	
 }
