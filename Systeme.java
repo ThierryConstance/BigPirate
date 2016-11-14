@@ -72,6 +72,12 @@ public class Systeme
 		
 		
 		collection_personnage = new Personnage[nb_perso];
+		
+		collection_personnage[0]=new Pirate();
+		collection_personnage[1]=new Fantome();
+		
+		grille[4][8].addPersonnage(collection_personnage[0]);
+		
 		ihm=new IHM(this);
 	}
 	

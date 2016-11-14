@@ -50,7 +50,7 @@ public abstract class Case {
 			return inventaire.iterator().next();
 		}
 	}
-	public Personnage moussaillonPresent(){
+	public Personnage personnagePresent(){
 		if(equipage.isEmpty()){
 			return null;
 		}
@@ -58,9 +58,17 @@ public abstract class Case {
 			return equipage.iterator().next();
 		}
 	}
-	
-	/*public static void main(String[] args) {
-
-	}*/
+	public void addPersonnage(Personnage p){
+		equipage.add(p);
+	}
+	public void addTresor(Tresor t){
+		inventaire.add(t);
+	}
+	public void removePersonnage(Personnage p){
+		equipage.remove(p);
+	}
+	public void removeTresor(Tresor t){
+		inventaire.remove(t);
+	}
 	
 }
