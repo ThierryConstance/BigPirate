@@ -18,7 +18,7 @@ public class IHM extends JFrame{
 	public IHM(Systeme syst){
 		super("BigPirate");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		this.setSize(new Dimension(600,600));
+		this.setSize(new Dimension(550,600));
 		this.setLayout(new BorderLayout());
 		
 		this.getContentPane().add(new Carte(syst),BorderLayout.CENTER);
