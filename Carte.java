@@ -29,12 +29,7 @@ public class Carte extends JPanel {
 					tmp=new JLabel(new ImageIcon(syst.getGrille()[j][i].getPath()));
 				}
 				else{
-					if(syst.getGrille()[j][i].getEquipage().isEmpty()){
-						tmp=new JLabel(new ImageIcon(fusion(syst.getGrille()[j][i].getPath(),syst.getGrille()[j][i].tresorPresent().getPath())));
-					}
-					else{
-						tmp=new JLabel(new ImageIcon(fusion(syst.getGrille()[j][i].getPath(),syst.getGrille()[j][i].personnagePresent().getPath())));
-					}
+					tmp=new JLabel(new ImageIcon(fusion(syst.getGrille()[j][i].getPath(),syst.getGrille()[j][i].personnagePresent().getPath())));
 				}
 				this.add(tmp);
 				}
