@@ -1,5 +1,6 @@
 
 import java.awt.BorderLayout;
+import java.awt.CardLayout;
 import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
@@ -25,11 +26,35 @@ public class IHM extends JFrame{
 		
 		JPanel bottom=new JPanel(new BorderLayout());
 		JPanel direction =new JPanel(new BorderLayout());
-		JPanel menu=new JPanel(new BorderLayout());
+		final JPanel menu=new JPanel(new CardLayout());
+		JPanel de=new JPanel(new BorderLayout());
+		JButton finDuTour=new JButton("Fin du tour");
+		
+		JPanel menuMoussaillon=new JPanel(new GridLayout(1,2));
+		JPanel menuPirate=new JPanel();
+		
 		
 		JLabel text =new JLabel("Menu info & kotopo kotopo");
+
+		JPanel carteCocotier= new JPanel(new BorderLayout());
+		carteCocotier.add(new JButton("Cocotier"),BorderLayout.NORTH);
+		carteCocotier.add(new JLabel("3"),BorderLayout.CENTER);
+		menuMoussaillon.add(carteCocotier);
+
+		JPanel cartePerroquet= new JPanel(new BorderLayout());
+		cartePerroquet.add(new JButton("Perroquet"),BorderLayout.NORTH);
+		cartePerroquet.add(new JLabel("4"),BorderLayout.CENTER);
+		menuMoussaillon.add(cartePerroquet);
 		
-		menu.add(text, BorderLayout.CENTER);
+		JButton lancerDe=new JButton("Lance le dé!");
+		de.add(lancerDe,BorderLayout.NORTH);
+		final JLabel resultDe=new JLabel("En attente du résultat");
+		de.add(resultDe,BorderLayout.CENTER);
+		
+		menuPirate.add(new JLabel("Menu Pirate"));
+		
+		menu.add(menuMoussaillon, "Menu Moussaillon");
+		menu.add(menuPirate, "Menu Pirate");
 		
 		JButton haut=new JButton("Haut"),bas=new JButton("Bas"),droite=new JButton("Droite"),gauche=new JButton("Gauche");
 		
@@ -40,11 +65,15 @@ public class IHM extends JFrame{
 		
 		bottom.add(direction, BorderLayout.WEST);
 		bottom.add(menu, BorderLayout.EAST);
+		bottom.add(de,BorderLayout.CENTER);
+		bottom.add(finDuTour,BorderLayout.SOUTH);
 		
 		gauche.addActionListener(
 	    		new ActionListener(){
 	    			public void actionPerformed(ActionEvent e){
 	    				//fonction de deplacement
+	    				CardLayout cl = (CardLayout)(menu.getLayout());
+	    				cl.next(menu);
 	    			}
 	    		}		
 	    	);
@@ -52,6 +81,8 @@ public class IHM extends JFrame{
 	    		new ActionListener(){
 	    			public void actionPerformed(ActionEvent e){
 	    				//fonction de deplacement
+	    				CardLayout cl = (CardLayout)(menu.getLayout());
+	    				cl.first(menu);
 	    			}
 	    		}		
 	    	);
@@ -59,16 +90,21 @@ public class IHM extends JFrame{
 	    		new ActionListener(){
 	    			public void actionPerformed(ActionEvent e){
 	    				//fonction de deplacement
+	    				
 	    			}
 	    		}		
 	    	);
-		haut.addActionListener(
+
+		lancerDe.addActionListener(
 	    		new ActionListener(){
 	    			public void actionPerformed(ActionEvent e){
 	    				//fonction de deplacement
+	    				Integer res=new Des6().lancerDe();
+	    				resultDe.setText(res.toString());
 	    			}
 	    		}		
 	    	);
+		
 		
 		
 		
