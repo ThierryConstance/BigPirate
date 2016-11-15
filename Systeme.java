@@ -22,7 +22,7 @@ public class Systeme
 		
 		for(int i = 0; i < nb_moussaillon; i++)
 		{
-			collection_personnage[2+i] = new Moussaillon();
+			collection_personnage[2+i] = new Moussaillon(nb_moussaillon);
 		}
 		
 		this.miseEnPlace(this.grille);
