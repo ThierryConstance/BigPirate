@@ -5,6 +5,7 @@ public class Systeme
 	private Personnage[] collection_personnage;
 	private int nb_moussaillon = 3;
 	private int nb_perso = nb_moussaillon + 2;
+	private int suivant = 2; //indique à qui est le tour de jeu
 	private IHM ihm;
 	
 
@@ -27,7 +28,7 @@ public class Systeme
 		this.miseEnPlace(this.grille);
 		
 		//Annonce que c'est au tour du premier moussaillon de jouer
-		collection_personnage[2].aToiDeJouer();
+		collection_personnage[this.suivant].aToiDeJouer();
 		
 		ihm=new IHM(this);
 	}
@@ -154,20 +155,21 @@ public class Systeme
 		}
 	}
 	
-	//TODO
-	//suivant:
-	//Rappel: Chacun des moussaillon joue son tour, puis le pirate, puis le fantôme.
-	//Le Personnage passé en paramètre (perso) est le personnage qui vient de réaliser son tour de jeu
-	//public Personnage suivant()
 		
 	public void aGagne(Personnage perso)
 	{
 		System.out.println(perso + "a gagne");
 	}
 	
-	public void finDeTour(Personnage perso)
+	
+	//Rappel: Chacun des moussaillon joue son tour, puis le pirate, puis le fantôme.
+	//Le Personnage passé en paramètre (perso) est le personnage qui vient de réaliser son tour de jeu
+	//public Personnage suivant()
+	public void finDeTour()
 	{
-		//suivant(perso).aToiDeJouer();
+		this.suivant ++;
+		if(this.suivant == this.nb_perso)	this.suivant = 0;	
+		collection_personnage[this.suivant].aToiDeJouer();
 	}
 	
 	//TODO

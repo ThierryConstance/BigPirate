@@ -1,11 +1,12 @@
 import java.util.AbstractCollection;
+import java.util.HashSet;
 
 
 
 public class Moussaillon extends Personnage {
 	
-	private AbstractCollection<Cocotier> collectionCocotier;
-	private AbstractCollection<Perroquet> collectionPerroquet;
+	private AbstractCollection<Cocotier> collectionCocotier=new HashSet();
+	private AbstractCollection<Perroquet> collectionPerroquet=new HashSet();;
 	private static int[][] tab={{5,4,3},{3,2,1}};
 	
 	public Moussaillon(Integer nbMoussaillon){
