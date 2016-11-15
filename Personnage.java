@@ -10,5 +10,7 @@ public class Personnage {
 	public String getPath() {
 		return path;
 	}
+	
+	public void aToiDeJouer(){}
 
 }
