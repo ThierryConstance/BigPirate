@@ -12,6 +12,61 @@ public class Systeme
 	
 	public Systeme()
 	{
+		
+		this.initGrille();
+		
+		collection_personnage = new Personnage[nb_perso];
+		collection_personnage[0]=new Pirate();
+		collection_personnage[1]=new Fantome();
+		
+		for(int i = 0; i < nb_moussaillon; i++)
+		{
+			collection_personnage[2+i] = new Moussaillon();
+		}
+		
+		this.miseEnPlace(this.grille);
+		
+		//Annonce que c'est au tour du premier moussaillon de jouer
+		collection_personnage[2].aToiDeJouer();
+		
+		ihm=new IHM(this);
+	}
+	
+	//----------------------------------------------------------------------------------------------------------------------------------------
+	//GETTER and SETTER
+	//----------------------------------------------------------------------------------------------------------------------------------------
+	public Case[][] getGrille() {
+		return grille;
+	}
+	public void setGrille(Case[][] grille) {
+		this.grille = grille;
+	}
+	
+	public Personnage[] getCollection_personnage() {
+		return collection_personnage;
+	}
+	public void setCollection_personnage(Personnage[] collection_personnage) {
+		this.collection_personnage = collection_personnage;
+	}
+	
+	public int getNb_moussaillon() {
+		return nb_moussaillon;
+	}
+	public void setNb_moussaillon(int nb_moussaillon) {
+		this.nb_moussaillon = nb_moussaillon;
+	}
+	
+	public int getNb_perso() {
+		return nb_perso;
+	}
+	public void setNb_perso(int nb_perso) {
+		this.nb_perso = nb_perso;
+	}
+
+	
+	// Initialisation de la grille
+	public void initGrille()
+	{
 		grille = new Case[12][12];
 		for(int i=0;i<12;i++){
 			for(int j=0;j<12;j++){
@@ -69,50 +124,35 @@ public class Systeme
 		grille[11][0]= new Barque(11,0);
 		grille[10][0]= new Barque(10,0);
 		grille[11][1]= new Barque(11,1);
-		
-		
-		collection_personnage = new Personnage[nb_perso];
-		
-		collection_personnage[0]=new Pirate();
-		collection_personnage[1]=new Fantome();
-		
-		grille[4][8].addPersonnage(collection_personnage[0]);
-		
-		ihm=new IHM(this);
 	}
 	
-	//----------------------------------------------------------------------------------------------------------------------------------------
-	//GETTER and SETTER
-	//----------------------------------------------------------------------------------------------------------------------------------------
-	public Case[][] getGrille() {
-		return grille;
-	}
-	public void setGrille(Case[][] grille) {
-		this.grille = grille;
-	}
 	
-	public Personnage[] getCollection_personnage() {
-		return collection_personnage;
+	//Mise en place des personnages
+	public void miseEnPlace(Case[][] g)
+	{
+		//Mise en place du pirate  
+		g[4][8].addPersonnage(collection_personnage[0]);
+		//Mise en place du fantôme
+		g[10][10].addPersonnage(collection_personnage[1]);
+		for (int i = 0; i< this.nb_moussaillon; i++)
+		{
+			//Ajout des trésorts dans la grotte 
+			grille[4][8].addTresor(new Tresor());
+			//Ajout des moussaillon dans la barque
+			if(i == 0)
+			{
+				grille[10][0].addPersonnage(collection_personnage[2]);
+			}
+			if(i == 1)
+			{
+				grille[11][1].addPersonnage(collection_personnage[3]);
+			}
+			if(i == 2)
+			{
+				grille[11][0].addPersonnage(collection_personnage[4]);
+			}
+		}
 	}
-	public void setCollection_personnage(Personnage[] collection_personnage) {
-		this.collection_personnage = collection_personnage;
-	}
-	
-	public int getNb_moussaillon() {
-		return nb_moussaillon;
-	}
-	public void setNb_moussaillon(int nb_moussaillon) {
-		this.nb_moussaillon = nb_moussaillon;
-	}
-	
-	public int getNb_perso() {
-		return nb_perso;
-	}
-	public void setNb_perso(int nb_perso) {
-		this.nb_perso = nb_perso;
-	}
-
-	//----------------------------------------------------------------------------------------------------------------------------------------
 	
 	//TODO
 	//suivant:
