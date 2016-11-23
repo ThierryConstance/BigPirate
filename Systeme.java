@@ -94,26 +94,27 @@ public class Systeme
 
 		grille[4][8]=new Grotte(4,8);
 		
-		grille[1][4]= new CocotierExt(1,4);
 		grille[2][4]= new CocotierInter(2,4);
+		grille[1][4]= new CocotierExt(1,4,grille[2][4]);
 		
-		grille[1][9]= new CocotierExt(1,9);
 		grille[2][9]= new CocotierInter(2,9);
+		grille[1][9]= new CocotierExt(1,9,grille[2][9]);
 		
-		grille[3][3]= new CocotierExt(3,3);
 		grille[4][3]= new CocotierInter(4,3);
-		
-		grille[5][10]= new CocotierExt(5,10);
+		grille[3][3]= new CocotierExt(3,3,grille[4][3]);
+
 		grille[5][9]= new CocotierInter(5,9);
+		grille[5][10]= new CocotierExt(5,10,grille[5][9]);
 		
-		grille[6][5]= new CocotierExt(6, 5);
 		grille[6][6]= new CocotierInter(6,6);
+		grille[6][5]= new CocotierExt(6, 5,grille[6][6]);
 		
-		grille[8][7]= new CocotierExt(8, 7);
 		grille[8][8]= new CocotierInter(8,8);
+		grille[8][7]= new CocotierExt(8, 7,grille[8][8]);
 		
-		grille[9][10]= new CocotierExt(9,10);
 		grille[9][9]= new CocotierInter(9,9);
+		grille[9][10]= new CocotierExt(9,10,grille[9][9]);
+
 		
 		for(int i=0;i<12;i++){
 			grille[0][i]=new Mer(0,i);
