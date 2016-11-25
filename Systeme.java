@@ -1,7 +1,7 @@
 
 public class Systeme 
 {
-	private Case[][] grille;
+	static Case[][] grille;
 	private Personnage[] collection_personnage;
 	private int nb_moussaillon = 3;
 	private int nb_perso = nb_moussaillon + 2;
@@ -94,27 +94,26 @@ public class Systeme
 
 		grille[4][8]=new Grotte(4,8);
 		
+		grille[1][4]= new CocotierExt(1,4);
 		grille[2][4]= new CocotierInter(2,4);
-		grille[1][4]= new CocotierExt(1,4,grille[2][4]);
 		
+		grille[1][9]= new CocotierExt(1,9);
 		grille[2][9]= new CocotierInter(2,9);
-		grille[1][9]= new CocotierExt(1,9,grille[2][9]);
 		
+		grille[3][3]= new CocotierExt(3,3);
 		grille[4][3]= new CocotierInter(4,3);
-		grille[3][3]= new CocotierExt(3,3,grille[4][3]);
-
+		
+		grille[5][10]= new CocotierExt(5,10);
 		grille[5][9]= new CocotierInter(5,9);
-		grille[5][10]= new CocotierExt(5,10,grille[5][9]);
 		
+		grille[6][5]= new CocotierExt(6, 5);
 		grille[6][6]= new CocotierInter(6,6);
-		grille[6][5]= new CocotierExt(6, 5,grille[6][6]);
 		
+		grille[8][7]= new CocotierExt(8, 7);
 		grille[8][8]= new CocotierInter(8,8);
-		grille[8][7]= new CocotierExt(8, 7,grille[8][8]);
 		
+		grille[9][10]= new CocotierExt(9,10);
 		grille[9][9]= new CocotierInter(9,9);
-		grille[9][10]= new CocotierExt(9,10,grille[9][9]);
-
 		
 		for(int i=0;i<12;i++){
 			grille[0][i]=new Mer(0,i);
@@ -134,8 +133,10 @@ public class Systeme
 	{
 		//Mise en place du pirate  
 		g[4][8].addPersonnage(collection_personnage[0]);
+		collection_personnage[0].setCasePerso(g[4][8]);
 		//Mise en place du fantôme
 		g[10][10].addPersonnage(collection_personnage[1]);
+		collection_personnage[1].setCasePerso(g[10][10]);
 		for (int i = 0; i< this.nb_moussaillon; i++)
 		{
 			//Ajout des trésorts dans la grotte 
@@ -144,14 +145,17 @@ public class Systeme
 			if(i == 0)
 			{
 				grille[10][0].addPersonnage(collection_personnage[2]);
+				collection_personnage[2].setCasePerso(g[10][0]);
 			}
 			if(i == 1)
 			{
 				grille[11][1].addPersonnage(collection_personnage[3]);
+				collection_personnage[3].setCasePerso(g[11][1]);
 			}
 			if(i == 2)
 			{
 				grille[11][0].addPersonnage(collection_personnage[4]);
+				collection_personnage[4].setCasePerso(g[11][0]);
 			}
 		}
 	}

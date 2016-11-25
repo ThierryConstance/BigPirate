@@ -1,11 +1,9 @@
 
 public class CocotierExt extends Case {
 
-	Case coco;
 	
-	CocotierExt(Integer _x, Integer _y,Case _coco) {
+	CocotierExt(Integer _x, Integer _y) {
 		super(_x, _y);
-		coco=_coco;
 		path="src/cocotierext.png";
 	}
 	public Boolean estValide(){

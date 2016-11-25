@@ -14,14 +14,11 @@ import javax.swing.JPanel;
 
 public class IHM extends JFrame{
 	static int n=12;
-	final static String MENUMOUSSAILLON="Menu Moussaillon";
-	final static String MENUPIRATE="Menu Pirate";
 	
-	public IHM(final Systeme syst){
-
+	public IHM(Systeme syst){
 		super("BigPirate");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		this.setSize(new Dimension(550,600));
+		this.setSize(new Dimension(600,600));
 		this.setLayout(new BorderLayout());
 		
 		this.getContentPane().add(new Carte(syst),BorderLayout.CENTER);
@@ -30,7 +27,7 @@ public class IHM extends JFrame{
 		JPanel bottom=new JPanel(new BorderLayout());
 		JPanel direction =new JPanel(new BorderLayout());
 		final JPanel menu=new JPanel(new CardLayout());
-		final JPanel de=new JPanel(new BorderLayout());
+		JPanel de=new JPanel(new BorderLayout());
 		JButton finDuTour=new JButton("Fin du tour");
 		
 		JPanel menuMoussaillon=new JPanel(new GridLayout(1,2));
@@ -56,8 +53,8 @@ public class IHM extends JFrame{
 		
 		menuPirate.add(new JLabel("Menu Pirate"));
 		
-		menu.add(menuMoussaillon, MENUMOUSSAILLON);
-		menu.add(menuPirate, MENUPIRATE);
+		menu.add(menuMoussaillon, "Menu Moussaillon");
+		menu.add(menuPirate, "Menu Pirate");
 		
 		JButton haut=new JButton("Haut"),bas=new JButton("Bas"),droite=new JButton("Droite"),gauche=new JButton("Gauche");
 		
@@ -75,7 +72,8 @@ public class IHM extends JFrame{
 	    		new ActionListener(){
 	    			public void actionPerformed(ActionEvent e){
 	    				//fonction de deplacement
-	    				((CardLayout) menu.getLayout()).next(menu);
+	    				CardLayout cl = (CardLayout)(menu.getLayout());
+	    				cl.next(menu);
 	    			}
 	    		}		
 	    	);
@@ -106,15 +104,7 @@ public class IHM extends JFrame{
 	    			}
 	    		}		
 	    	);
-
-		finDuTour.addActionListener(
-	    		new ActionListener(){
-	    			public void actionPerformed(ActionEvent e){
-	    				//fonction de deplacement
-	    				syst.finDeTour();
-	    			}
-	    		}		
-	    	);
+		
 		
 		
 		
