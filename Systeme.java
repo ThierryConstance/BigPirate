@@ -1,7 +1,7 @@
 
 public class Systeme 
 {
-	private Case[][] grille;
+	private static Case[][] grille;
 	private Personnage[] collection_personnage;
 	private int nb_moussaillon = 3;
 	private int nb_perso = nb_moussaillon + 2;
@@ -36,7 +36,7 @@ public class Systeme
 	//----------------------------------------------------------------------------------------------------------------------------------------
 	//GETTER and SETTER
 	//----------------------------------------------------------------------------------------------------------------------------------------
-	public Case[][] getGrille() {
+	public static Case[][] getGrille() {
 		return grille;
 	}
 	public void setGrille(Case[][] grille) {
