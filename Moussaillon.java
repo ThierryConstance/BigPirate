@@ -20,4 +20,10 @@ public class Moussaillon extends Personnage {
 		path="src/moussaillon.png";
 	}
 
+	public void poursuit() {
+		// TODO Auto-generated method stub
+		//Déplacement du fantôme jusque cette case
+		//Perte du trésort du fantôme
+	}
+
 }
